@@ -5,7 +5,7 @@ using UnityEngine;
 public class playerScript : MonoBehaviour
 {
     GameObject target;
-    public GameObject balls,maincam;
+    public GameObject balls,startposition;
     Vector3 destination;
     // Update is called once per frame
     void Update()
@@ -15,7 +15,7 @@ public class playerScript : MonoBehaviour
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             destination = ray.direction;
             target = Instantiate(balls);
-            target.transform.position = maincam.transform.position;
+            target.transform.position = startposition.transform.position;
            
         }
         if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended))
@@ -24,7 +24,7 @@ public class playerScript : MonoBehaviour
             var ray = Camera.main.ScreenPointToRay(touch.position);
             destination = ray.direction;
             target = Instantiate(balls);
-            target.transform.position = maincam.transform.position;
+            target.transform.position = startposition.transform.position;
 
         }
         if (target != null)
